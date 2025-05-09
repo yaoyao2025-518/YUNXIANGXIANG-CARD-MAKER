@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>云想享·名片生成器</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -10,17 +10,19 @@
   <h1>云想享·名片生成器</h1>
   <div class="container">
     <div class="form">
+      <label>上传背景图：<input type="file" id="bg" accept="image/*" /></label>
       <label>姓名：<input type="text" id="name" /></label>
-      <label>职位：<input type="text" id="title" /></label>
+      <label>职务：<input type="text" id="title" /></label>
       <label>电话：<input type="text" id="phone" /></label>
       <label>邮箱：<input type="text" id="email" /></label>
-      <label>二维码1：<input type="file" id="qr1" accept="image/*" /></label>
-      <label>二维码2：<input type="file" id="qr2" accept="image/*" /></label>
+      <label>地址：<input type="text" id="address" /></label>
+      <label>网址：<input type="text" id="website" /></label>
       <button onclick="generate()">生成名片</button>
     </div>
-    <canvas id="canvas" width="1280" height="720"></canvas>
+    <canvas id="canvas" width="850" height="350"></canvas>
     <a id="download" download="namecard.png" style="display:none;">下载名片</a>
   </div>
   <script src="script.js"></script>
 </body>
 </html>
+
