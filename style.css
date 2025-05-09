@@ -1,23 +1,55 @@
-body {
-  font-family: sans-serif;
-  background: #f9f9f9;
-  text-align: center;
-  padding: 20px;
-}
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.form {
-  margin-bottom: 20px;
-}
-canvas {
-  border: 1px solid #ccc;
-  margin-top: 10px;
-}
-input[type="text"] {
-  margin: 5px;
-  padding: 5px;
-  font-size: 16px;
+function generate() {
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+
+  const name = document.getElementById("name").value;
+  const title = document.getElementById("title").value;
+  const phone = document.getElementById("phone").value;
+  const email = document.getElementById("email").value;
+  const address = document.getElementById("address").value;
+  const website = document.getElementById("website").value;
+
+  const bgInput = document.getElementById("bg");
+  const bgFile = bgInput.files[0];
+
+  if (!bgFile) {
+    alert("请先上传背景图");
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    const img = new Image();
+    img.onload = function () {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#000";
+      ctx.textAlign = "left";
+
+      // 姓名（居中偏上） [425, 100]
+      ctx.font = "bold 36px 黑体";
+      ctx.textAlign = "center";
+      ctx.fillText(name, 425, 100);
+
+      // 职务（稍下） [425, 140]
+      ctx.font = "24px 黑体";
+      ctx.fillText(title, 425, 140);
+
+      // 联系方式区（左下起）
+      ctx.textAlign = "left";
+      ctx.font = "20px 黑体";
+      ctx.fillText("T: " + phone, 50, 200);
+      ctx.fillText("E-mail: " + email, 50, 240);
+
+      ctx.font = "18px 黑体";
+      ctx.fillText("Add: " + address, 50, 280);
+      ctx.fillText(website, 50, 310);
+
+      document.getElementById("download").href = canvas.toDataURL();
+      document.getElementById("download").style.display = "inline-block";
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(bgFile);
 }
