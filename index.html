@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>云想享·名片生成器</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>云想享·名片生成器</h1>
+  <div class="container">
+    <div class="form">
+      <label>姓名：<input type="text" id="name" /></label>
+      <label>职位：<input type="text" id="title" /></label>
+      <label>电话：<input type="text" id="phone" /></label>
+      <label>邮箱：<input type="text" id="email" /></label>
+      <label>二维码1：<input type="file" id="qr1" accept="image/*" /></label>
+      <label>二维码2：<input type="file" id="qr2" accept="image/*" /></label>
+      <button onclick="generate()">生成名片</button>
+    </div>
+    <canvas id="canvas" width="1280" height="720"></canvas>
+    <a id="download" download="namecard.png" style="display:none;">下载名片</a>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
