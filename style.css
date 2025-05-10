@@ -1,19 +1,14 @@
 function generate() {
-  const canvas = document.getElementById("canvas");
-  const ctx = canvas.getContext("2d");
-
   const name = document.getElementById("name").value;
   const title = document.getElementById("title").value;
   const phone = document.getElementById("phone").value;
   const email = document.getElementById("email").value;
   const address = document.getElementById("address").value;
   const website = document.getElementById("website").value;
-
   const bgInput = document.getElementById("bg");
-  const bgFile = bgInput.files[0];
 
-  if (!bgFile) {
-    alert("请先上传背景图");
+  if (!bgInput.files[0]) {
+    alert("请上传背景图片！");
     return;
   }
 
@@ -21,35 +16,32 @@ function generate() {
   reader.onload = function (e) {
     const img = new Image();
     img.onload = function () {
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+
+      // 清除画布
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
+      // 设置文字样式
       ctx.fillStyle = "#000";
-      ctx.textAlign = "left";
+      ctx.font = "bold 24px sans-serif";
+      ctx.fillText(name, 50, 60);
 
-      // 姓名（居中偏上） [425, 100]
-      ctx.font = "bold 36px 黑体";
-      ctx.textAlign = "center";
-      ctx.fillText(name, 425, 100);
+      ctx.font = "18px sans-serif";
+      ctx.fillText(title, 50, 90);
+      ctx.fillText("T: " + phone, 50, 140);
+      ctx.fillText("E-mail: " + email, 50, 170);
+      ctx.fillText("Add: " + address, 50, 200);
+      ctx.fillText(website, 50, 230);
 
-      // 职务（稍下） [425, 140]
-      ctx.font = "24px 黑体";
-      ctx.fillText(title, 425, 140);
-
-      // 联系方式区（左下起）
-      ctx.textAlign = "left";
-      ctx.font = "20px 黑体";
-      ctx.fillText("T: " + phone, 50, 200);
-      ctx.fillText("E-mail: " + email, 50, 240);
-
-      ctx.font = "18px 黑体";
-      ctx.fillText("Add: " + address, 50, 280);
-      ctx.fillText(website, 50, 310);
-
-      document.getElementById("download").href = canvas.toDataURL();
-      document.getElementById("download").style.display = "inline-block";
+      // 启用下载链接
+      const link = document.getElementById("download");
+      link.href = canvas.toDataURL("image/png");
+      link.style.display = "inline-block";
+      link.innerText = "下载名片";
     };
     img.src = e.target.result;
   };
-  reader.readAsDataURL(bgFile);
+  reader.readAsDataURL(bgInput.files[0]);
 }
