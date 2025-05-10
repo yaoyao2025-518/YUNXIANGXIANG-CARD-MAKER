@@ -19,26 +19,30 @@ function generate() {
       const canvas = document.getElementById("canvas");
       const ctx = canvas.getContext("2d");
 
-      // 提高清晰度：画布设置为2倍
-      canvas.width = 850 * 2;
-      canvas.height = 500 * 2;
-      ctx.scale(2, 2);
+      // 设置画布尺寸为 85x50mm（即850x500px）
+      canvas.width = 850;
+      canvas.height = 500;
 
-      ctx.clearRect(0, 0, 850, 500);
-      ctx.drawImage(img, 0, 0, 850, 500);
+      // 清除画布并绘制背景图
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-      // 绘制文字
+      // 统一文字样式
       ctx.fillStyle = "#000";
+
+      // 姓名：加粗大号
       ctx.font = "bold 28px sans-serif";
-      ctx.fillText(name, 60, 120);
+      ctx.fillText(name, 80, 120);
 
+      // 其他信息：正常字体
       ctx.font = "20px sans-serif";
-      ctx.fillText(title, 60, 160);
-      ctx.fillText("T: " + phone, 60, 200);
-      ctx.fillText("E-mail: " + email, 60, 240);
-      ctx.fillText("Add: " + address, 60, 280);
-      ctx.fillText(website, 60, 320);
+      ctx.fillText(title, 80, 160);
+      ctx.fillText("T: " + phone, 80, 200);
+      ctx.fillText("E-mail: " + email, 80, 240);
+      ctx.fillText("Add: " + address, 80, 280);
+      ctx.fillText(website, 80, 320);
 
+      // 启用下载按钮
       const link = document.getElementById("download");
       link.href = canvas.toDataURL("image/png");
       link.style.display = "inline-block";
