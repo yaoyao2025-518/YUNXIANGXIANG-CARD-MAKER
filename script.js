@@ -1,57 +1,70 @@
-function generate() {
-  const name = document.getElementById("name").value;
-  const title = document.getElementById("title").value;
-  const phone = document.getElementById("phone").value;
-  const email = document.getElementById("email").value;
-  const address = document.getElementById("address").value;
-  const website = document.getElementById("website").value;
-  const bgInput = document.getElementById("bg");
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  background: #f5f5fa;
+  padding: 20px;
+  color: #333;
+}
 
-  if (!bgInput.files[0]) {
-    alert("请上传背景图！");
-    return;
-  }
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-  const reader = new FileReader();
-  reader.onload = function (e) {
-    const img = new Image();
-    img.onload = function () {
-      const canvas = document.getElementById("canvas");
-      const ctx = canvas.getContext("2d");
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
 
-      canvas.width = 850;  // 85mm × 10
-      canvas.height = 500; // 50mm × 10
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
 
-      // 清空画布并绘制背景图
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+.form label {
+  flex: 1 1 200px;
+  font-size: 14px;
+}
 
-      // 字体颜色
-      ctx.fillStyle = "#000";
+.form input {
+  width: 100%;
+  padding: 5px;
+  font-size: 14px;
+}
 
-      // 姓名（加粗大号）
-      ctx.font = "bold 32px sans-serif";
-      ctx.fillText(name, 60, 120);
+button {
+  padding: 8px 16px;
+  font-size: 14px;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-      // 职务
-      ctx.font = "24px sans-serif";
-      ctx.fillText(title, 60, 165);
+canvas {
+  display: block;
+  margin: 20px auto;
+  border: 1px solid #ccc;
 
-      // 联系方式
-      ctx.font = "20px sans-serif";
-      ctx.fillText("T: " + phone, 60, 210);
-      ctx.fillText("E-mail: " + email, 60, 250);
-      ctx.fillText("Add: " + address, 60, 290);
-      ctx.fillText(website, 60, 330);
+  /* 显示缩放预览 */
+  width: 100%;
+  max-width: 425px; /* 等比例缩放（850px ÷ 2） */
+  height: auto;
+}
 
-      // 下载按钮显示
-      const link = document.getElementById("download");
-      link.href = canvas.toDataURL("image/png");
-      link.style.display = "inline-block";
-      link.innerText = "下载名片";
-    };
-    img.src = e.target.result;
-  };
-
-  reader.readAsDataURL(bgInput.files[0]);
+#download {
+  display: block;
+  margin: 10px auto;
+  padding: 6px 12px;
+  background-color: #f55;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
 }
