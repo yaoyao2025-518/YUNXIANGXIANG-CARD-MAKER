@@ -19,23 +19,22 @@ function generate() {
       const canvas = document.getElementById("canvas");
       const ctx = canvas.getContext("2d");
 
-      // 设置名片实际尺寸：85mm × 50mm（单位为像素，假设 10px/mm）
       canvas.width = 850;
       canvas.height = 500;
 
-      // 清空画布并绘制背景图
+      // 清空并绘制背景图
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-      // 设置文本样式
+      // 文字颜色和左对齐
       ctx.fillStyle = "#000";
-      ctx.textAlign = "left"; // 强制从左对齐
+      ctx.textAlign = "left";
 
-      // 姓名（大字，霞鹜文楷加粗）
-      ctx.font = "bold 32px 'LXGW WenKai Screen', sans-serif";
-      ctx.fillText(name, 60, 110);
+      // 姓名使用霞鹜文楷加粗
+      ctx.font = "bold 32px 'LXGW WenKai', sans-serif";
+      ctx.fillText(name, 60, 110); // 姓名
 
-      // 其他信息（普通字号，Helvetica）
+      // 其他信息使用 Helvetica 正常体
       ctx.font = "20px Helvetica, sans-serif";
       ctx.fillText(title, 60, 150);
       ctx.fillText("T: " + phone, 60, 190);
@@ -43,7 +42,7 @@ function generate() {
       ctx.fillText("Add: " + address, 60, 270);
       ctx.fillText(website, 60, 310);
 
-      // 显示下载链接
+      // 下载按钮激活
       const link = document.getElementById("download");
       link.href = canvas.toDataURL("image/png");
       link.style.display = "inline-block";
@@ -51,6 +50,5 @@ function generate() {
     };
     img.src = e.target.result;
   };
-
   reader.readAsDataURL(bgInput.files[0]);
 }
