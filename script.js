@@ -30,7 +30,7 @@ function generate() {
 ctx.fillStyle = "#000";
 ctx.textAlign = "left";
 
-const offsetY = 150; // 👈 控制整体向下的偏移距离（更新为 150）
+const offsetY = 200; // 
 
 // 姓名使用霞鹜文楷加粗
 ctx.font = "bold 32px 'LXGW WenKai', sans-serif";
