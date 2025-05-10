@@ -1,47 +1,82 @@
-function generate() {
-  const name = document.getElementById("name").value;
-  const title = document.getElementById("title").value;
-  const phone = document.getElementById("phone").value;
-  const email = document.getElementById("email").value;
-  const address = document.getElementById("address").value;
-  const website = document.getElementById("website").value;
-  const bgInput = document.getElementById("bg");
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  background: #fdfdfd;
+  padding: 40px 20px;
+  color: #333;
+  margin: 0;
+}
 
-  if (!bgInput.files[0]) {
-    alert("请上传背景图片！");
-    return;
-  }
+h1 {
+  text-align: center;
+  font-size: 28px;
+  color: #444;
+  margin-bottom: 30px;
+}
 
-  const reader = new FileReader();
-  reader.onload = function (e) {
-    const img = new Image();
-    img.onload = function () {
-      const canvas = document.getElementById("canvas");
-      const ctx = canvas.getContext("2d");
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.08);
+}
 
-      // 清除画布
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
 
-      // 设置文字样式
-      ctx.fillStyle = "#000";
-      ctx.font = "bold 24px sans-serif";
-      ctx.fillText(name, 50, 60);
+.form label {
+  flex: 1 1 45%;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  color: #555;
+}
 
-      ctx.font = "18px sans-serif";
-      ctx.fillText(title, 50, 90);
-      ctx.fillText("T: " + phone, 50, 140);
-      ctx.fillText("E-mail: " + email, 50, 170);
-      ctx.fillText("Add: " + address, 50, 200);
-      ctx.fillText(website, 50, 230);
+.form input {
+  padding: 8px;
+  font-size: 14px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
 
-      // 启用下载链接
-      const link = document.getElementById("download");
-      link.href = canvas.toDataURL("image/png");
-      link.style.display = "inline-block";
-      link.innerText = "下载名片";
-    };
-    img.src = e.target.result;
-  };
-  reader.readAsDataURL(bgInput.files[0]);
+button {
+  padding: 10px 20px;
+  font-size: 15px;
+  background: #444;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #222;
+}
+
+canvas {
+  display: block;
+  margin: 0 auto 20px auto;
+  border: 1px solid #ddd;
+  background: #f9f9f9;
+  border-radius: 6px;
+}
+
+a#download {
+  display: inline-block;
+  padding: 10px 16px;
+  background: #ff6666;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: auto;
 }
