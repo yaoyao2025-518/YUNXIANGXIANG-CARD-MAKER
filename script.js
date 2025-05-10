@@ -1,45 +1,54 @@
 body {
-  font-family: 'Arial', sans-serif;
-  text-align: center;
+  font-family: "Helvetica Neue", sans-serif;
   background: #f8f8f8;
   padding: 20px;
+  color: #333;
 }
 
 h1 {
-  margin-bottom: 10px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .container {
-  background: white;
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
   padding: 20px;
-  border-radius: 8px;
-  display: inline-block;
+  border-radius: 12px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 .form {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
-label {
-  margin: 5px 0;
+.form label {
+  flex: 1 1 200px;
   font-size: 14px;
 }
 
-input[type="text"], input[type="file"] {
-  margin-left: 10px;
-  padding: 4px;
+.form input {
+  width: 100%;
+  padding: 5px;
+  font-size: 14px;
 }
 
 button {
-  margin-top: 10px;
   padding: 8px 16px;
-  background-color: #ff6666;
+  font-size: 14px;
+  background: #333;
+  color: #fff;
   border: none;
-  color: white;
   border-radius: 4px;
   cursor: pointer;
+}
+
+canvas {
+  display: block;
+  margin: 20px auto;
+  border: 1px solid #ccc;
 }
