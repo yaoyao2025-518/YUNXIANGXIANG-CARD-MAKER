@@ -3,46 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>云想享 · 名片生成器</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-web/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+  <title>云想享・名片生成器</title>
 
+  <!-- 字体样式：霞鹜文楷 & Helvetica -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-web/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Helvetica&display=swap" rel="stylesheet">
+
+  <!-- 页面样式 -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>云想享 · 名片生成器</h1>
+  <h1>云想享・名片生成器</h1>
 
   <div class="container">
     <div class="form">
-      <label>上传背景图：
-        <input type="file" id="bg" accept="image/*"/>
+      <label>上传背景图:
+        <input type="file" id="bg" accept="image/*" />
       </label>
-      <label>姓名：
-        <input type="text" id="name" placeholder="请输入姓名" />
+      <label>姓名:
+        <input type="text" id="name" />
       </label>
-      <label>职务：
-        <input type="text" id="title" placeholder="请输入职务" />
+      <label>职务:
+        <input type="text" id="title" />
       </label>
-      <label>电话：
-        <input type="text" id="phone" placeholder="请输入电话" />
+      <label>电话:
+        <input type="text" id="phone" />
       </label>
-      <label>邮箱：
-        <input type="text" id="email" placeholder="请输入邮箱" />
+      <label>邮箱:
+        <input type="text" id="email" />
       </label>
-      <label>地址：
-        <input type="text" id="address" placeholder="请输入地址" />
+      <label>地址:
+        <input type="text" id="address" />
       </label>
-      <label>网址：
-        <input type="text" id="website" placeholder="请输入网址" />
+      <label>网址:
+        <input type="text" id="website" />
       </label>
       <button onclick="generate()">生成名片</button>
     </div>
 
     <canvas id="canvas" width="850" height="500"></canvas>
-    <a id="download" download="namecard.png" style="display:none">下载名片</a>
+    <a id="download" download="namecard.png" style="display:none;">下载名片</a>
   </div>
 
+  <!-- 脚本文件 -->
   <script src="script.js"></script>
 </body>
 </html>
