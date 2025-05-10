@@ -1,7 +1,7 @@
 body {
-  font-family: "Helvetica Neue", sans-serif;
-  background: #fdfdfd;
-  padding: 40px 20px;
+  font-family: "LXGW WenKai Screen", Helvetica, sans-serif;
+  background: #f5f5fa;
+  padding: 20px;
   color: #333;
   margin: 0;
 }
@@ -9,14 +9,14 @@ body {
 h1 {
   text-align: center;
   font-size: 28px;
-  color: #444;
   margin-bottom: 30px;
+  color: #444;
 }
 
 .container {
   max-width: 900px;
   margin: auto;
-  background: #fff;
+  background: #ffffff;
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.08);
@@ -45,6 +45,7 @@ h1 {
   border: 1px solid #ccc;
   border-radius: 6px;
   outline: none;
+  font-family: inherit;
 }
 
 button {
@@ -64,19 +65,26 @@ button:hover {
 
 canvas {
   display: block;
-  margin: 0 auto 20px auto;
+  margin: 20px auto;
   border: 1px solid #ddd;
   background: #f9f9f9;
   border-radius: 6px;
+
+  /* 等比例缩放预览尺寸 */
+  width: 100%;
+  max-width: 425px; /* 对应原图 850 的一半 */
+  height: auto;
 }
 
-a#download {
-  display: inline-block;
+#download {
+  display: block;
+  margin: 10px auto;
   padding: 10px 16px;
-  background: #ff6666;
-  color: #fff;
-  border-radius: 6px;
+  background-color: #ff6666;
+  color: white;
   text-decoration: none;
+  border-radius: 6px;
   font-weight: bold;
-  margin: auto;
+  font-size: 14px;
+  text-align: center;
 }
