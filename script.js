@@ -30,7 +30,7 @@ function generate() {
 ctx.fillStyle = "#000";
 ctx.textAlign = "left";
 
-     const offsetY = 200; 
+     const offsetY = 140; 
     console.log("✅ generate 函数运行，当前 offsetY=", offsetY); 
 
 // 姓名使用霞鹜文楷加粗
