@@ -30,6 +30,8 @@ function generate() {
       ctx.fillStyle = "#000";
       ctx.textAlign = "left";
 
+      const offsetY = 60; 
+
       // 姓名使用霞鹜文楷加粗
       ctx.font = "bold 32px 'LXGW WenKai', sans-serif";
       ctx.fillText(name, 60, 110); // 姓名
