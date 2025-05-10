@@ -8,22 +8,37 @@
 </head>
 <body>
   <h1>云想享 · 名片生成器</h1>
+
   <div class="container">
     <div class="form">
       <label>上传背景图：
         <input type="file" id="bg" accept="image/*"/>
       </label>
-      <label>姓名：<input type="text" id="name" /></label>
-      <label>职务：<input type="text" id="title" /></label>
-      <label>电话：<input type="text" id="phone" /></label>
-      <label>邮箱：<input type="text" id="email" /></label>
-      <label>地址：<input type="text" id="address" /></label>
-      <label>网址：<input type="text" id="website" /></label>
+      <label>姓名：
+        <input type="text" id="name" placeholder="请输入姓名" />
+      </label>
+      <label>职务：
+        <input type="text" id="title" placeholder="请输入职务" />
+      </label>
+      <label>电话：
+        <input type="text" id="phone" placeholder="请输入电话" />
+      </label>
+      <label>邮箱：
+        <input type="text" id="email" placeholder="请输入邮箱" />
+      </label>
+      <label>地址：
+        <input type="text" id="address" placeholder="请输入地址" />
+      </label>
+      <label>网址：
+        <input type="text" id="website" placeholder="请输入网址" />
+      </label>
       <button onclick="generate()">生成名片</button>
     </div>
-    <canvas id="canvas" width="850" height="350"></canvas>
-    <a id="download" download="namecard.png" style="display:none;">下载名片</a>
+
+    <canvas id="canvas" width="850" height="500"></canvas>
+    <a id="download" download="namecard.png" style="display:none">下载名片</a>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
