@@ -19,26 +19,26 @@ function generate() {
       const canvas = document.getElementById("canvas");
       const ctx = canvas.getContext("2d");
 
-      canvas.width = 850;  // 85mm × 10
-      canvas.height = 500; // 50mm × 10
+      // 提高清晰度：画布设置为2倍
+      canvas.width = 850 * 2;
+      canvas.height = 500 * 2;
+      ctx.scale(2, 2);
 
-      // 清除画布并绘制背景图
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, 850, 500);
+      ctx.drawImage(img, 0, 0, 850, 500);
 
-      // 设置统一字体样式
+      // 绘制文字
       ctx.fillStyle = "#000";
       ctx.font = "bold 28px sans-serif";
-      ctx.fillText(name, 250, 100); // 姓名位置
+      ctx.fillText(name, 60, 120);
 
       ctx.font = "20px sans-serif";
-      ctx.fillText(title, 250, 140); // 职务
-      ctx.fillText("T: " + phone, 250, 180);
-      ctx.fillText("E-mail: " + email, 250, 220);
-      ctx.fillText("Add: " + address, 250, 260);
-      ctx.fillText(website, 250, 300);
+      ctx.fillText(title, 60, 160);
+      ctx.fillText("T: " + phone, 60, 200);
+      ctx.fillText("E-mail: " + email, 60, 240);
+      ctx.fillText("Add: " + address, 60, 280);
+      ctx.fillText(website, 60, 320);
 
-      // 显示下载按钮
       const link = document.getElementById("download");
       link.href = canvas.toDataURL("image/png");
       link.style.display = "inline-block";
